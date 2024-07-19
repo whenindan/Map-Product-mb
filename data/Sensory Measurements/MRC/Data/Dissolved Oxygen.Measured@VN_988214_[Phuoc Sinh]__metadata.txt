@@ -1,0 +1,20 @@
+# Time series identifier: Dissolved Oxygen.Measured@VN_988214_[Phuoc Sinh]
+# Location identifier: VN_988214_[Phuoc Sinh]
+# UTC offset: (UTC+07:00)
+# Value units: mg/l
+# Value parameter: Dissolved Oxygen
+# Value label: Measured
+#
+# Location identifier: VN_988214_[Phuoc Sinh]
+# Location name: Phuoc Sinh
+# Country: Viet Nam
+# River: N/A
+# Latitude: 9.38176
+# Longitude: 105.383
+#
+# Disclaimer: The Mekong River Commission make no warranties about this data and disclaim all responsibility and liability for all expenses, losses, damages and costs which may be incurred as a result of the data being inaccurate or incomplete in any way and for any reason. The data contained herein do not imply the expression of any opinion whatsoever on the part of the Mekong River Commission concerning the legal status of any country, territory, city or area or of its authorities, or concerning the delineation of its frontiers or boundaries.
+#
+# Export options: Corrected signal from 1990-03-14T17:00:00Z to 2009-06-14T17:00:00Z
+#
+# Generated at 2023-09-09T08:19:24+07
+#

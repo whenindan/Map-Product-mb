@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+  <name>VN_210304_[Son La]</name>
+  <description>Son La</description>
+  <Point>
+    <coordinates>103.9,21.0333333333333,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>

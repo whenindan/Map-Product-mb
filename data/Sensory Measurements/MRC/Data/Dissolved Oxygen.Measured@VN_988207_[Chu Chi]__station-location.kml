@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+  <name>VN_988207_[Chu Chi]</name>
+  <description>Chu Chi</description>
+  <Point>
+    <coordinates>105.311,9.30649,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>

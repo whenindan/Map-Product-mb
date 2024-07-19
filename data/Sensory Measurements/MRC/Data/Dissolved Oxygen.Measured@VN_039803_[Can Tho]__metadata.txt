@@ -1,0 +1,20 @@
+# Time series identifier: Dissolved Oxygen.Measured@VN_039803_[Can Tho]
+# Location identifier: VN_039803_[Can Tho]
+# UTC offset: (UTC+07:00)
+# Value units: mg/l
+# Value parameter: Dissolved Oxygen
+# Value label: Measured
+#
+# Location identifier: VN_039803_[Can Tho]
+# Location name: Can Tho
+# Country: Viet Nam
+# River: Bassac
+# Latitude: 10.052888889
+# Longitude: 105.787138889
+#
+# Disclaimer: The Mekong River Commission make no warranties about this data and disclaim all responsibility and liability for all expenses, losses, damages and costs which may be incurred as a result of the data being inaccurate or incomplete in any way and for any reason. The data contained herein do not imply the expression of any opinion whatsoever on the part of the Mekong River Commission concerning the legal status of any country, territory, city or area or of its authorities, or concerning the delineation of its frontiers or boundaries.
+#
+# Export options: Corrected signal from 1985-05-14T17:00:00Z to 2021-12-14T17:00:00Z
+#
+# Generated at 2023-09-09T08:19:23+07
+#

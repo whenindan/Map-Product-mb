@@ -1,0 +1,7 @@
+Country Code,Station Code,Parameter,Label,Timestamp (UTC+07:00),Value,Unit,Observed or Estimated,Approval Level,Grade
+VN,033407,Littoral AAbundance,Average per station,2011-12-30T17:00Z,19.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,033407,Littoral AAbundance,Average per station,2013-12-30T17:00Z,5.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,033407,Littoral AAbundance,Average per station,2015-12-30T17:00Z,40.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,033407,Littoral AAbundance,Average per station,2017-12-30T17:00Z,90.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,033407,Littoral AAbundance,Average per station,2019-12-30T17:00Z,36.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,033407,Littoral AAbundance,Average per station,2021-12-30T17:00Z,48.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data

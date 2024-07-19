@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Demo: Switch from Google Maps to Mapbox</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css" />
+        <script id="search-js" defer src="https://api.mapbox.com/search-js/v1.0.0-beta.21/web.js"></script>
+
+    </head>
+    <body>
+        <div>
+            <input type="text" id="search-box" placeholder="Enter location">
+            <button id="search-button">Search</button>
+        </div>
+        <div id="map"></div>
+        <div id="marker-info"></div>
+        <div id="info">
+            <h2>Location Info</h2>
+            <form id="location-form">
+                <input type="text" id="latitude" placeholder="Latitude" required>
+                <input type="text" id="longitude" placeholder="Longitude" required>
+                <!-- <textarea id="location-description" placeholder="Location Description" required></textarea> -->
+                <button type="submit" onclick="getPos()">Save Location</button>
+            </form>
+        </div>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+  <name>VN_988101_[Hong Ngu]</name>
+  <description>Hong Ngu</description>
+  <Point>
+    <coordinates>105.355,10.805,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>

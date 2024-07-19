@@ -1,0 +1,20 @@
+# Time series identifier: Littoral AAbundance.Average per station@VN_033404_[VKB_Khanh Binh_An Giang]
+# Location identifier: VN_033404_[VKB_Khanh Binh_An Giang]
+# UTC offset: (UTC+07:00)
+# Value units: Species Count
+# Value parameter: Littoral AAbundance
+# Value label: Average per station
+#
+# Location identifier: VN_033404_[VKB_Khanh Binh_An Giang]
+# Location name: VKB_Khanh Binh_An Giang
+# Country: Vietnam
+# River: Bassac
+# Latitude: 10.9546641508756
+# Longitude: 105.086801693414
+#
+# Disclaimer: The Mekong River Commission make no warranties about this data and disclaim all responsibility and liability for all expenses, losses, damages and costs which may be incurred as a result of the data being inaccurate or incomplete in any way and for any reason. The data contained herein do not imply the expression of any opinion whatsoever on the part of the Mekong River Commission concerning the legal status of any country, territory, city or area or of its authorities, or concerning the delineation of its frontiers or boundaries.
+#
+# Export options: Corrected signal from 2011-12-30T17:00:00Z to 2021-12-30T17:00:00Z
+#
+# Generated at 2023-09-09T08:19:31+07
+#

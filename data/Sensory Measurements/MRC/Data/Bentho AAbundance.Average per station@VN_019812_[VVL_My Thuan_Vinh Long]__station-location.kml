@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+  <name>VN_019812_[VVL_My Thuan_Vinh Long]</name>
+  <description>VVL_My Thuan_Vinh Long</description>
+  <Point>
+    <coordinates>105.947045918479,10.2626414224907,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>

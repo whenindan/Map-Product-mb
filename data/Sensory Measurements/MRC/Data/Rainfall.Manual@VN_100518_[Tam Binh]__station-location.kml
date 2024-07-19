@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+  <name>VN_100518_[Tam Binh]</name>
+  <description>Tam Binh</description>
+  <Point>
+    <coordinates>106.0,10.05,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>

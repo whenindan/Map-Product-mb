@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+  <name>VN_988214_[Phuoc Sinh]</name>
+  <description>Phuoc Sinh</description>
+  <Point>
+    <coordinates>105.383,9.38176,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>

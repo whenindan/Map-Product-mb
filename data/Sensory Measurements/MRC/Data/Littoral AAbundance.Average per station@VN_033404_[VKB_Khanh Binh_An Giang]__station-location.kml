@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+  <name>VN_033404_[VKB_Khanh Binh_An Giang]</name>
+  <description>VKB_Khanh Binh_An Giang</description>
+  <Point>
+    <coordinates>105.086801693414,10.9546641508756,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>

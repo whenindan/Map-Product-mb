@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+  <name>VN_450302_[Cau 14]</name>
+  <description>Cau 14</description>
+  <Point>
+    <coordinates>107.933,12.609,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>

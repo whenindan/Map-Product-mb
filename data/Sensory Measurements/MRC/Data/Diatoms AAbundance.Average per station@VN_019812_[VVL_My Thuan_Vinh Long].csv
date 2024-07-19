@@ -1,0 +1,7 @@
+Country Code,Station Code,Parameter,Label,Timestamp (UTC+07:00),Value,Unit,Observed or Estimated,Approval Level,Grade
+VN,019812,Diatoms AAbundance,Average per station,2011-12-30T17:00Z,104.8,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,019812,Diatoms AAbundance,Average per station,2013-12-30T17:00Z,108.4,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,019812,Diatoms AAbundance,Average per station,2015-12-30T17:00Z,757.4,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,019812,Diatoms AAbundance,Average per station,2017-12-30T17:00Z,617.4,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,019812,Diatoms AAbundance,Average per station,2019-12-30T17:00Z,5128.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,019812,Diatoms AAbundance,Average per station,2021-12-30T17:00Z,1316.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data

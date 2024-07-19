@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+  <name>VN_100507_[Long Xuyen]</name>
+  <description>Long Xuyen</description>
+  <Point>
+    <coordinates>105.45,10.3833333333333,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>

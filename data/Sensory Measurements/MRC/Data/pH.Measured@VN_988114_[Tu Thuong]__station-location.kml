@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+  <name>VN_988114_[Tu Thuong]</name>
+  <description>Tu Thuong</description>
+  <Point>
+    <coordinates>105.337,10.8244,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>

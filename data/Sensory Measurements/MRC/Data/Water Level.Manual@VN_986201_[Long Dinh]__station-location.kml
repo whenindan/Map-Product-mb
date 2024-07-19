@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+  <name>VN_986201_[Long Dinh]</name>
+  <description>Long Dinh</description>
+  <Point>
+    <coordinates>106.2640106,10.3891182,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>

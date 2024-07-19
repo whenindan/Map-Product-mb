@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+  <name>VN_090508_[Ganh Hao]</name>
+  <description>Ganh Hao</description>
+  <Point>
+    <coordinates>105.4,9.03333333333333,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>

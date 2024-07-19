@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+  <name>VN_019809_[VTT_Thuong Thoi_Dong Thap]</name>
+  <description>VTT_Thuong Thoi_Dong Thap</description>
+  <Point>
+    <coordinates>105.264876680426,10.8059959595095,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>

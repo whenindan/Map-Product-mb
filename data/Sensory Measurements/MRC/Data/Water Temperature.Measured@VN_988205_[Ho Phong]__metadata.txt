@@ -1,0 +1,20 @@
+# Time series identifier: Water Temperature.Measured@VN_988205_[Ho Phong]
+# Location identifier: VN_988205_[Ho Phong]
+# UTC offset: (UTC+07:00)
+# Value units: degC
+# Value parameter: Water Temperature
+# Value label: Measured
+#
+# Location identifier: VN_988205_[Ho Phong]
+# Location name: Ho Phong
+# Country: Viet Nam
+# River: N/A
+# Latitude: 9.23399
+# Longitude: 105.407
+#
+# Disclaimer: The Mekong River Commission make no warranties about this data and disclaim all responsibility and liability for all expenses, losses, damages and costs which may be incurred as a result of the data being inaccurate or incomplete in any way and for any reason. The data contained herein do not imply the expression of any opinion whatsoever on the part of the Mekong River Commission concerning the legal status of any country, territory, city or area or of its authorities, or concerning the delineation of its frontiers or boundaries.
+#
+# Export options: Corrected signal from 1990-02-14T17:00:00Z to 2009-06-15T05:00:00Z
+#
+# Generated at 2023-09-02T10:26:23+07
+#

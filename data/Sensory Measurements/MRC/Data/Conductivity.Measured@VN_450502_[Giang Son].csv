@@ -1,0 +1,27 @@
+Country Code,Station Code,Parameter,Label,Timestamp (UTC+07:00),Value,Unit,Observed or Estimated,Approval Level,Grade
+VN,450502,Conductivity,Measured,1993-01-14T17:00Z,6.3,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1993-02-14T17:00Z,6.7,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1993-03-14T17:00Z,6.6,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1993-04-14T17:00Z,7.7,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1993-05-14T17:00Z,6.9,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1993-06-14T17:00Z,7.7,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1993-07-14T17:00Z,5.0,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1993-08-14T17:00Z,5.5,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1993-09-14T17:00Z,4.7,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1993-10-14T17:00Z,4.5,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1993-11-14T17:00Z,5.9,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1993-12-14T17:00Z,5.5,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1994-01-14T17:00Z,5.6,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1994-02-14T17:00Z,5.1,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1994-03-14T17:00Z,6.8,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1994-04-14T17:00Z,5.7,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1994-05-14T17:00Z,6.8,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1994-06-14T17:00Z,6.4,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1994-07-14T17:00Z,6.2,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1994-08-14T17:00Z,6.1,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1994-09-14T17:00Z,5.2,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1994-10-14T17:00Z,5.7,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1994-11-14T17:00Z,4.9,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1994-12-14T17:00Z,6.3,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1995-01-14T17:00Z,6.2,mS/m,O,Raw - Not Yet Reviewed,Unverified data
+VN,450502,Conductivity,Measured,1995-02-14T17:00Z,5.2,mS/m,O,Raw - Not Yet Reviewed,Unverified data

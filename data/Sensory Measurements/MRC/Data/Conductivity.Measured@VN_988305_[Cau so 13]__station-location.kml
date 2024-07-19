@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+  <name>VN_988305_[Cau so 13]</name>
+  <description>Cau so 13</description>
+  <Point>
+    <coordinates>105.053,10.4181,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>

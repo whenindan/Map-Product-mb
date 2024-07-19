@@ -1,0 +1,7 @@
+Country Code,Station Code,Parameter,Label,Timestamp (UTC+07:00),Value,Unit,Observed or Estimated,Approval Level,Grade
+VN,019811,Zooplanktons AAbundance,Average per station,2011-12-30T17:00Z,33.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,019811,Zooplanktons AAbundance,Average per station,2013-12-30T17:00Z,40.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,019811,Zooplanktons AAbundance,Average per station,2015-12-30T17:00Z,126.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,019811,Zooplanktons AAbundance,Average per station,2017-12-30T17:00Z,128.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,019811,Zooplanktons AAbundance,Average per station,2019-12-30T17:00Z,20.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,019811,Zooplanktons AAbundance,Average per station,2021-12-30T17:00Z,83.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data

@@ -1,0 +1,7 @@
+Country Code,Station Code,Parameter,Label,Timestamp (UTC+07:00),Value,Unit,Observed or Estimated,Approval Level,Grade
+VN,033408,Bentho AAbundance,Average per station,2011-12-30T17:00Z,67.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,033408,Bentho AAbundance,Average per station,2013-12-30T17:00Z,23.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,033408,Bentho AAbundance,Average per station,2015-12-30T17:00Z,16.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,033408,Bentho AAbundance,Average per station,2017-12-30T17:00Z,18.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,033408,Bentho AAbundance,Average per station,2019-12-30T17:00Z,15.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data
+VN,033408,Bentho AAbundance,Average per station,2021-12-30T17:00Z,28.0,Species Count,O,Raw - Not Yet Reviewed,Unverified data

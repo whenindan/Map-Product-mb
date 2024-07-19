@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+  <name>VN_988213_[Phung Hiep]</name>
+  <description>Phung Hiep</description>
+  <Point>
+    <coordinates>105.818,9.79172,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>

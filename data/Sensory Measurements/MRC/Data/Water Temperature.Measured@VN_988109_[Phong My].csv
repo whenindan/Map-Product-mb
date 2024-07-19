@@ -1,0 +1,5 @@
+Country Code,Station Code,Parameter,Label,Timestamp (UTC+07:00),Value,Unit,Observed or Estimated,Approval Level,Grade
+VN,988109,Water Temperature,Measured,2003-06-14T17:00Z,26.0,degC,O,Raw - Not Yet Reviewed,Unverified data
+VN,988109,Water Temperature,Measured,2003-07-14T17:00Z,26.0,degC,O,Raw - Not Yet Reviewed,Unverified data
+VN,988109,Water Temperature,Measured,2003-08-14T17:00Z,27.0,degC,O,Raw - Not Yet Reviewed,Unverified data
+VN,988109,Water Temperature,Measured,2003-12-14T17:00Z,27.0,degC,O,Raw - Not Yet Reviewed,Unverified data
