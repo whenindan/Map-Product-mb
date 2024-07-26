@@ -13,10 +13,7 @@ const popup = new mapboxgl.Popup().setHTML(
   `<h3>Reykjavik Roasters</h3><p>A good coffee shop</p>`
 );
 
-const marker = new mapboxgl.Marker()
-  .setLngLat([-21.92661562, 64.14356426])
-  .setPopup(popup)
-  .addTo(map);
+
 
 function getPos(){
     event.preventDefault();
@@ -69,15 +66,20 @@ function markerFromData(dirr) {
 }
 
 function displayInfo(item) {
-    let infoContent = `<h3>${item.location}</h3>`;
+    let infoContent = `<div class="marker-details"><h3>${item.location}</h3>`;
     
     for (const key in item) {
         if (item.hasOwnProperty(key) && key !== 'location' && key !== 'time' && key !== 'coordinates') {
             const value = item[key];
-            infoContent += `<p>${value.name}: ${value.value} ${value.unit === 'none' ? '' : value.unit}</p>`;
+            infoContent += `
+                <div class="info-item">
+                    <strong>${value.name}:</strong> ${value.value} ${value.unit === 'none' ? '' : value.unit}
+                </div>
+            `;
         }
     }
     
+    infoContent += `</div>`;
     infoDiv.innerHTML = infoContent;
 }
 
