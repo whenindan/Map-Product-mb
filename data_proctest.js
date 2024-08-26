@@ -13,6 +13,7 @@ async function fetchJSON(filePath) {
     }
 }
 
+    
 // Function to perform a search using the Google Geocoding API
 async function performSearch(query) {
     const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(query)}&key=AIzaSyD6LG6WlS6rxBNyTQe85CaBpejmo6ow1B4`;

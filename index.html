@@ -13,20 +13,26 @@
         <div id="map"></div>
         <div id="info">
             <div id="search">
-                <input type="text" id="search-box" placeholder="Enter location">
+                <input type="text" id="search-box" list="tinh" autocomplete="on" placeholder="Enter location">
+                <datalist id="tinh">
+                    <option value="Soc Trang">
+                    <option value="Tra Vinh">
+                </datalist>
                 <button id="search-button">Search</button>
             </div>
             <form id="location-form">
-                <input type="text" id="latitude" placeholder="Latitude" required>
+                <!-- <input type="text" id="latitude" placeholder="Latitude" required>
                 <input type="text" id="longitude" placeholder="Longitude" required>
-                <button type="submit" onclick="getPos()">Save Location</button>
+                <button type="submit" onclick="getPos()">Save Location</button> -->
             </form>
             <div id="marker-info">
                 <h2>Location Info</h2>
             </div>
+            <canvas id="graph-canvas"></canvas>
         </div>
     </div>
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

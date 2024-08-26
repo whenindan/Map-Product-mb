@@ -9,11 +9,10 @@ const map = new mapboxgl.Map({
 
 const infoDiv = document.getElementById('marker-info');
 
+
 const popup = new mapboxgl.Popup().setHTML(
   `<h3>Reykjavik Roasters</h3><p>A good coffee shop</p>`
 );
-
-
 
 function getPos(){
     event.preventDefault();
@@ -21,8 +20,8 @@ function getPos(){
     let lon = document.getElementById("longitude").value;
     lat = parseFloat(lat);
     lon = parseFloat(lon);
-    if ((lat<-90 || lat>90) || 
-        (lon<-180 || lon>180) ||
+    if ((lat < -90 || lat > 90) || 
+        (lon < -180 || lon > 180) ||
         (isNaN(lat)) ||
         (isNaN(lon))){
       alert("Invalid values.")
@@ -33,8 +32,10 @@ function getPos(){
         .addTo(map);
     }
 }
+let mapMarkers = {}; // Changed to a dictionary to track markers by location
 
-function markerFromData(dirr) {
+function markerFromData(dirr, province) {
+    
     fetch(dirr)
         .then((response) => response.json())
         .then((data) => {
@@ -45,20 +46,31 @@ function markerFromData(dirr) {
                 const lat = parseFloat(item.coordinates[0]);
                 const lon = parseFloat(item.coordinates[1]);
 
-                const marker = new mapboxgl.Marker()
-                    .setLngLat([lon, lat])
-                    .addTo(map);
+                const marker = new mapboxgl.Marker({
+                    className: province // Add province as a class name for styling if needed
+                })
+                .setLngLat([lon, lat])
+                .addTo(map);
+                
+                // Store marker with a unique identifier or location name
+                mapMarkers[item.location] = marker;
 
+                // Add custom properties to the marker
+                marker.province = province;
+                marker.location = item.location;
+                
                 marker.getElement().addEventListener('click', () => {
                     try{
                         displayInfo(item);  
+                        
                     }
                     catch(error){
                         console.log(item.location);
                     }
-                    
                 });
             }
+            console.log(Object.getOwnPropertyNames(mapMarkers).length);
+            console.log(province);
         })
         .catch((error) => {
             console.error('Error fetching JSON:', error);
@@ -78,80 +90,88 @@ function displayInfo(item) {
             `;
         }
     }
-    
+    infoContent += `<button id="show-graph-button" onclick="showGraph('${item.location}')">Show Graph</button>`;
     infoContent += `</div>`;
     infoDiv.innerHTML = infoContent;
 }
 
-// function markerFromData(dirr) {
-//     fetch(dirr)
-//         .then((response) => response.json())
-//         .then((data) => {
-//             for (const item of data.data){
-//                 if (item.coordinates=='Unknown'){
-//                     continue;
-//                 }  
-//                 const popup = new mapboxgl.Popup().setHTML(
-//                     `<h3>${item.location}</p>`
-//                   );
-//                 let lat = parseFloat(item.coordinates[0]);
-//                 let lon = parseFloat(item.coordinates[1]);
-//                 const marker = new mapboxgl.Marker()
-//                 try{
-//                     marker.setLngLat([lon,lat])
-//                     marker.setPopup(popup)
-//                     marker.addTo(map);                    
-//                 } catch(error){
-//                     console.log(item.location);
-//                 }
+function showGraph(location) {
+    console.log("SUCCESS");
+    const historicalDataPath = `./data/historical_data.json`;
+    
+    fetch(historicalDataPath)
+        .then(response => response.json())
+        .then(data => {
+            const locationData = data[location];
+            if (locationData) {
+                const times = Object.keys(locationData);
+                const values = Object.values(locationData);
 
-                
-//             }
-      
-//         })
-//         .catch((error) => {
-//             console.error('Error fetching JSON:', error);
-//         });
-// }
+                const labels = times;
+                const datasets = [];
+                for (let parameter in values[0]) {
+                    datasets.push({
+                        label: parameter,
+                        data: values.map(value => value[parameter]),
+                        borderColor: getRandomColor(),
+                        fill: false
+                    });
+                }
 
-//function markerFromData(dirr) {
-//     fetch(dirr)
-//         .then((response) => response.json())
-//         .then((data) => {
-//             for (const item of data.data) {
-//                 if (item.coordinates === 'Unknown') {
-//                     continue;
-//                 }
-                
-//                 const lat = parseFloat(item.coordinates[0]);
-//                 const lon = parseFloat(item.coordinates[1]);
+                renderGraph(labels, datasets);
+            } else {
+                alert('No historical data available for this location.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching historical data:', error);
+        });
+}
 
-//                 const popupContent = `
-//                     <h3>${item.location}</h3>
-//                     <p>Time: ${item.time}</p>
-//                     <p>Temperature: ${item["Nhiệt độ nước"].value} ${item["Nhiệt độ nước"].unit}</p>
-//                     <p>Salinity: ${item["Độ mặn"].value} ${item["Độ mặn"].unit}</p>
-//                     <p>pH: ${item.pH.value} ${item.pH.unit}</p>
-//                     <p>Alkalinity: ${item.Kiềm.value} ${item.Kiềm.unit}</p>
-//                     <p>Transparency: ${item["Độ trong"].value} ${item["Độ trong"].unit}</p>
-//                     <p>Oxygen: ${item["Dissolved Oxygen (DO)"].value} ${item["Dissolved Oxygen (DO)"].unit}</p>
-//                     <p>Salinity Comparison to Previous Year: ${item["Độ mặn so với năm trước"].value} ${item["Độ mặn so với năm trước"].unit}</p>
-//                 `;
+function renderGraph(labels, datasets) {
+    const ctx = document.getElementById('graph-canvas').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: datasets
+        },
+        options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'Historical Data'
+            },
+            scales: {
+                x: {
+                    type: 'time',
+                    time: {
+                        unit: 'day'
+                    }
+                },
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
 
-//                 const popup = new mapboxgl.Popup().setHTML(popupContent);
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+markerFromData('./data/Sensory Measurements/Tra Vinh/JSON_proc/travinh-locations.json', 'Tra Vinh');
 
-//                 const marker = new mapboxgl.Marker()
-//                     .setLngLat([lon, lat])
-//                     .setPopup(popup)
-//                     .addTo(map);
-//             }
-//         })
-//         .catch((error) => {
-//             console.error('Error fetching JSON:', error);
-//         });
-// }
-markerFromData('./data/Sensory Measurements/Tra Vinh/JSON_proc/travinh-locations.json');
-markerFromData('./data/Sensory Measurements/Soc Trang/JSON_proc/soctrang-locations.json');
+markerFromData('./data/Sensory Measurements/Soc Trang/JSON_proc/soctrang-locations.json', 'Soc Trang');
+
+console.log(Object.getOwnPropertyNames(mapMarkers).length);
+
+
 
 const searchBox = document.getElementById('search-box');
 const searchButton = document.getElementById('search-button');
@@ -176,15 +196,45 @@ function searchUser() {
         });
 }
 
-// Event listener for the search button
-searchButton.addEventListener('click', searchUser);
 
-// Event listener for the "space" key press in the search box
+function makeVisibleProvince(province) {
+    for (const [location, marker] of Object.entries(mapMarkers)) {
+        if (province === marker.province) {
+            marker.getElement().classList.remove('hidden-marker');
+        }
+    }
+}
+
+function makeHiddenProvince(province) {
+    for (const [location, marker] of Object.entries(mapMarkers)) {
+        if (province === marker.province) {
+            marker.getElement().classList.add('hidden-marker');
+        }
+    }
+}
+
+
+
+function searchProvince() {
+    const query = searchBox.value.trim();
+    // Hide all markers first
+    for (const [location, marker] of Object.entries(mapMarkers)) {
+        marker.getElement().classList.add('hidden-marker');
+    }
+
+    // Show markers that match the search query
+    for (const [location, marker] of Object.entries(mapMarkers)) {
+        if (marker.province === query) {
+            marker.getElement().classList.remove('hidden-marker');
+        }
+    }
+}
+
+searchButton.addEventListener('click', searchProvince);
+
 searchBox.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
-        event.preventDefault(); // Prevent default space action (adding a space)
-        searchUser();
+        event.preventDefault();
+        searchProvince();
     }
 });
-
-

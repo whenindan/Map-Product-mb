@@ -34,6 +34,7 @@ body {
 }
 
 #search-box {
+  margin-top: 10px;
   flex: 1;
   padding: 10px;
   border: 1px solid #ccc;
@@ -42,6 +43,7 @@ body {
 }
 
 #search-button {
+  margin-top: 10px;
   padding: 10px 20px;
   border: 1px solid #007bff;
   background-color: #007bff;
@@ -122,3 +124,8 @@ body {
   width: 150px;
   text-transform: capitalize;
 }
+
+.hidden-marker {
+  display: none;
+}
+
