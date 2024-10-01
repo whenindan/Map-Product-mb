@@ -60,17 +60,10 @@ function markerFromData(dirr, province) {
                 marker.location = item.location;
                 
                 marker.getElement().addEventListener('click', () => {
-                    try{
-                        displayInfo(item);  
-                        
-                    }
-                    catch(error){
-                        console.log(item.location);
-                    }
+                    displayInfo(item);
                 });
             }
-            console.log(Object.getOwnPropertyNames(mapMarkers).length);
-            console.log(province);
+
         })
         .catch((error) => {
             console.error('Error fetching JSON:', error);
@@ -90,18 +83,48 @@ function displayInfo(item) {
             `;
         }
     }
-    infoContent += `<button id="show-graph-button" onclick="showGraph('${item.location}')">Show Graph</button>`;
+    
+    if (mapMarkers[item.location].province == 'Soc Trang'){
+        infoContent += `<button id="show-graph-button" onclick="showGraphTest('${item.location}')">Show Graph</button>`;
+    }
+    
     infoContent += `</div>`;
     infoDiv.innerHTML = infoContent;
 }
 
+function showGraphTest(location){
+    console.log(location);
+    const ctx = document.getElementById('graph-canvas');
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  
+}
+
 function showGraph(location) {
-    console.log("SUCCESS");
-    const historicalDataPath = `./data/historical_data.json`;
+
+    const historicalDataPath = `./data/Sensory Measurements/Soc Trang/JSON_proc/compiled_historical_data_st.json`;
     
     fetch(historicalDataPath)
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             const locationData = data[location];
             if (locationData) {
                 const times = Object.keys(locationData);
@@ -157,6 +180,7 @@ function renderGraph(labels, datasets) {
     });
 }
 
+
 function getRandomColor() {
     const letters = '0123456789ABCDEF';
     let color = '#';
@@ -169,7 +193,7 @@ markerFromData('./data/Sensory Measurements/Tra Vinh/JSON_proc/travinh-locations
 
 markerFromData('./data/Sensory Measurements/Soc Trang/JSON_proc/soctrang-locations.json', 'Soc Trang');
 
-console.log(Object.getOwnPropertyNames(mapMarkers).length);
+
 
 
 
@@ -215,25 +239,31 @@ function makeHiddenProvince(province) {
 
 
 
+// Function to show markers from the selected province or all markers
 function searchProvince() {
-    const query = searchBox.value.trim();
-    // Hide all markers first
-    for (const [location, marker] of Object.entries(mapMarkers)) {
-        marker.getElement().classList.add('hidden-marker');
-    }
+    const query = searchBox.value;
 
-    // Show markers that match the search query
-    for (const [location, marker] of Object.entries(mapMarkers)) {
-        if (marker.province === query) {
-            marker.getElement().classList.remove('hidden-marker');
+    if (query === 'Show all') {
+        // Make all markers visible
+        makeVisibleProvince('Soc Trang');
+        makeVisibleProvince('Tra Vinh');
+    } else if (query === 'Soc Trang' || query === 'Tra Vinh') {
+        // Make markers from the selected province visible and hide others
+        makeVisibleProvince(query);
+        if (query === 'Soc Trang') {
+            makeHiddenProvince('Tra Vinh');
+        } else {
+            makeHiddenProvince('Soc Trang');
         }
     }
 }
 
+// Event listener for the search button
 searchButton.addEventListener('click', searchProvince);
 
+// Event listener for pressing "Enter" in the search box
 searchBox.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter') {    
         event.preventDefault();
         searchProvince();
     }
