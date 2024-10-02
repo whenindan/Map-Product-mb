@@ -85,7 +85,7 @@ function displayInfo(item) {
     }
     
     if (mapMarkers[item.location].province == 'Soc Trang'){
-        infoContent += `<button id="show-graph-button" onclick="showGraphTest('${item.location}')">Show Graph</button>`;
+        infoContent += `<button id="show-graph-button" onclick="showGraph('${item.location}')">Show Graph</button>`;
     }
     
     infoContent += `</div>`;
@@ -94,6 +94,7 @@ function displayInfo(item) {
 
 function showGraphTest(location){
     console.log(location);
+    
     const ctx = document.getElementById('graph-canvas');
 
     new Chart(ctx, {
@@ -102,7 +103,7 @@ function showGraphTest(location){
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
           label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
+          data: [12, 19, 3, 5, 2, 3],   
           borderWidth: 1
         }]
       },
@@ -117,39 +118,87 @@ function showGraphTest(location){
   
 }
 
-function showGraph(location) {
+let currentMeasurementIndex = 0; // To keep track of the current measurement type
 
+function showGraph(location) {
     const historicalDataPath = `./data/Sensory Measurements/Soc Trang/JSON_proc/compiled_historical_data_st.json`;
-    
+
     fetch(historicalDataPath)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
-            const locationData = data[location];
+            const locationData = data.find(entry => entry.location === location);    
             if (locationData) {
-                const times = Object.keys(locationData);
-                const values = Object.values(locationData);
+                console.log(`Found location: ${locationData.location}`);
 
-                const labels = times;
-                const datasets = [];
-                for (let parameter in values[0]) {
-                    datasets.push({
-                        label: parameter,
-                        data: values.map(value => value[parameter]),
-                        borderColor: getRandomColor(),
-                        fill: false
+                // Create a dropdown for measurement types
+                const measurementSelect = document.getElementById('measurement-select');
+                measurementSelect.innerHTML = ''; // Clear existing options
+                
+                locationData.measurements.forEach((measurement, index) => {
+                    const option = document.createElement('option');
+                    option.value = index; // Use the index to identify measurement type
+                    option.textContent = measurement.type; // Display measurement type in the dropdown
+                    measurementSelect.appendChild(option);
+                });
+
+
+
+                // Function to render the chart based on selected measurement type
+                function renderChart(index) {
+                    const selectedMeasurement = locationData.measurements[index];
+                    const dates = selectedMeasurement.data.map(dataPoint => dataPoint.date);
+                    const values = selectedMeasurement.data.map(dataPoint => parseFloat(dataPoint.value));
+
+                    const ctx = document.getElementById('graph-canvas').getContext('2d');
+                    // Clear any existing chart instances
+                    if (window.myChart) {
+                        window.myChart.destroy();
+                    }
+
+                    window.myChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: dates,
+                            datasets: [{
+                                label: selectedMeasurement.type,
+                                data: values,
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                borderWidth: 2,
+                                fill: true
+                            }]
+                        },
                     });
                 }
 
-                renderGraph(labels, datasets);
+                // Render initial chart
+                renderChart(currentMeasurementIndex);
+
+                // Change measurement type when dropdown selection changes
+                measurementSelect.addEventListener('change', (event) => {
+                    currentMeasurementIndex = parseInt(event.target.value);
+                    renderChart(currentMeasurementIndex);
+                    backButton.style.display = 'inline'; // Show back button
+                });
+
+                // Handle back button click to go back to the previous measurement
+                backButton.addEventListener('click', () => {
+                    if (currentMeasurementIndex > 0) {
+                        currentMeasurementIndex--;
+                        measurementSelect.value = currentMeasurementIndex; // Update dropdown
+                        renderChart(currentMeasurementIndex);
+                    }
+                    // Hide back button if at the first measurement
+                    backButton.style.display = currentMeasurementIndex > 0 ? 'inline' : 'none';
+                });
             } else {
-                alert('No historical data available for this location.');
+                console.log("Location not found.");
             }
         })
-        .catch(error => {
-            console.error('Error fetching historical data:', error);
-        });
+        .catch(error => console.error('Error loading data:', error));
 }
+
+
 
 function renderGraph(labels, datasets) {
     const ctx = document.getElementById('graph-canvas').getContext('2d');
