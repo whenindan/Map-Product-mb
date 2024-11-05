@@ -10,10 +10,6 @@ const map = new mapboxgl.Map({
 const infoDiv = document.getElementById('marker-info');
 
 
-const popup = new mapboxgl.Popup().setHTML(
-  `<h3>Reykjavik Roasters</h3><p>A good coffee shop</p>`
-);
-
 function getPos(){
     event.preventDefault();
     let lat = document.getElementById("latitude").value;
@@ -92,31 +88,6 @@ function displayInfo(item) {
     infoDiv.innerHTML = infoContent;
 }
 
-function showGraphTest(location){
-    console.log(location);
-    
-    const ctx = document.getElementById('graph-canvas');
-
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],   
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-  
-}
 
 let currentMeasurementIndex = 0; // To keep track of the current measurement type
 
@@ -141,43 +112,13 @@ function showGraph(location) {
                     measurementSelect.appendChild(option);
                 });
 
-
-
-                // Function to render the chart based on selected measurement type
-                function renderChart(index) {
-                    const selectedMeasurement = locationData.measurements[index];
-                    const dates = selectedMeasurement.data.map(dataPoint => dataPoint.date);
-                    const values = selectedMeasurement.data.map(dataPoint => parseFloat(dataPoint.value));
-
-                    const ctx = document.getElementById('graph-canvas').getContext('2d');
-                    // Clear any existing chart instances
-                    if (window.myChart) {
-                        window.myChart.destroy();
-                    }
-
-                    window.myChart = new Chart(ctx, {
-                        type: 'line',
-                        data: {
-                            labels: dates,
-                            datasets: [{
-                                label: selectedMeasurement.type,
-                                data: values,
-                                borderColor: 'rgba(75, 192, 192, 1)',
-                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                                borderWidth: 2,
-                                fill: true
-                            }]
-                        },
-                    });
-                }
-
                 // Render initial chart
-                renderChart(currentMeasurementIndex);
+                renderChart(locationData, currentMeasurementIndex);
 
                 // Change measurement type when dropdown selection changes
                 measurementSelect.addEventListener('change', (event) => {
                     currentMeasurementIndex = parseInt(event.target.value);
-                    renderChart(currentMeasurementIndex);
+                    renderChart(locationData, currentMeasurementIndex);
                     backButton.style.display = 'inline'; // Show back button
                 });
 
@@ -186,7 +127,7 @@ function showGraph(location) {
                     if (currentMeasurementIndex > 0) {
                         currentMeasurementIndex--;
                         measurementSelect.value = currentMeasurementIndex; // Update dropdown
-                        renderChart(currentMeasurementIndex);
+                        renderChart(locationData, currentMeasurementIndex);
                     }
                     // Hide back button if at the first measurement
                     backButton.style.display = currentMeasurementIndex > 0 ? 'inline' : 'none';
@@ -198,46 +139,44 @@ function showGraph(location) {
         .catch(error => console.error('Error loading data:', error));
 }
 
+// Function to render the chart based on selected measurement type
+function renderChart(locationData, index) {
+    const selectedMeasurement = locationData.measurements[index];
+    
+    // Sort data points by date
+    const sortedData = selectedMeasurement.data.sort((a, b) => {
+        const dateA = new Date(a.date.split('/').reverse().join('-'));
+        const dateB = new Date(b.date.split('/').reverse().join('-'));
+        return dateA - dateB;
+    });
 
+    const dates = sortedData.map(dataPoint => dataPoint.date);
+    const values = sortedData.map(dataPoint => parseFloat(dataPoint.value));
 
-function renderGraph(labels, datasets) {
     const ctx = document.getElementById('graph-canvas').getContext('2d');
-    new Chart(ctx, {
+    // Clear any existing chart instances
+    if (window.myChart) {
+        window.myChart.destroy();
+    }
+
+    window.myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: labels,
-            datasets: datasets
+            labels: dates,
+            datasets: [{
+                label: selectedMeasurement.type,
+                data: values,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderWidth: 2,
+                fill: true
+            }]
         },
-        options: {
-            responsive: true,
-            title: {
-                display: true,
-                text: 'Historical Data'
-            },
-            scales: {
-                x: {
-                    type: 'time',
-                    time: {
-                        unit: 'day'
-                    }
-                },
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
     });
 }
 
 
-function getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
+
 markerFromData('./data/Sensory Measurements/Tra Vinh/JSON_proc/travinh-locations.json', 'Tra Vinh');
 
 markerFromData('./data/Sensory Measurements/Soc Trang/JSON_proc/soctrang-locations.json', 'Soc Trang');
