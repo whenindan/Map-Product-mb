@@ -188,6 +188,8 @@ markerFromData('./data/Sensory Measurements/Soc Trang/JSON_proc/soctrang-locatio
 const searchBox = document.getElementById('search-box');
 const searchButton = document.getElementById('search-button');
 
+
+
 function searchUser() {
     const query = searchBox.value;
     console.log('Search query:', query);
@@ -246,6 +248,51 @@ function searchProvince() {
     }
 }
 
+const suggestionsBox = document.getElementById('suggestions');
+let activeMarker = null;
+
+function searchLocations(query) {
+    const matchedLocations = Object.keys(mapMarkers).filter(location => 
+        location.toLowerCase().includes(query.toLowerCase())
+    );
+
+    suggestionsBox.innerHTML = '';
+    matchedLocations.forEach(location => {
+        const suggestionItem = document.createElement('div');
+        suggestionItem.className = 'suggestion-item';
+        suggestionItem.textContent = location;
+        suggestionItem.addEventListener('click', () => {
+            highlightMarker(location);
+            searchBox.value = location;
+            suggestionsBox.style.display = 'none';
+        });
+        suggestionsBox.appendChild(suggestionItem);
+    });
+    suggestionsBox.style.display = matchedLocations.length ? 'block' : 'none';
+}
+
+function highlightMarker(location) {
+    // Remove any previous active marker class if one is already active
+
+
+    // Set the active marker to the one specified by location
+    activeMarker = mapMarkers[location];
+
+
+    // Center the map on the active marker and zoom in
+    map.flyTo({ center: activeMarker.getLngLat(), zoom: 13 });
+}
+
+
+searchBox.addEventListener('input', (event) => {
+    const query = event.target.value.trim();
+    if (query) {
+        searchLocations(query);
+    } else {
+        suggestionsBox.style.display = 'none';
+    }
+});
+
 // Event listener for the search button
 searchButton.addEventListener('click', searchProvince);
 
@@ -256,3 +303,4 @@ searchBox.addEventListener('keydown', (event) => {
         searchProvince();
     }
 });
+
