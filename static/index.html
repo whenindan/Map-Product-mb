@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <script id="search-js" defer src="https://api.mapbox.com/search-js/v1.0.0-beta.21/web.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="map"></div>
+        <div id="info">
+            <div id="search">
+                <input type="text" id="search-box" list="tinh" autocomplete="off" placeholder="Enter location">
+                <!-- <datalist id="tinh">
+                    <option value="Soc Trang">
+                    <option value="Tra Vinh">
+                    <option value="Show all">
+                </datalist> -->
+                <div id="suggestions" class="suggestions-dropdown"></div>
+                <button id="search-button">Search</button>
+            </div>
+            <form id="location-form">
+                <!-- <input type="text" id="latitude" placeholder="Latitude" required>
+                <input type="text" id="longitude" placeholder="Longitude" required>
+                <button type="submit" onclick="getPos()">Save Location</button> -->
+            </form>
+            <div id="marker-info">
+                <h2>Location Info</h2>
+            </div>
+            <select id="measurement-select"></select>
+            <canvas id="graph-canvas"></canvas>
+
+        </div>
+        <div id="chatbot-container" class="chatbot-collapsed">
+            <div id="chatbot-header">
+                <span>Chatbot</span>
+                <button id="toggle-chatbot">⬆</button>
+            </div>
+            <div id="chatbot-body">
+                <div id="chat-window"></div>
+                <div id="chat-input-container">
+                    <input type="text" id="chat-input" placeholder="Type your message..." autocomplete="off"/>
+                    <button id="send-message">Send</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+</html>
