@@ -6,7 +6,9 @@ import os
 from typing import List, Dict, Any
 from pydantic import BaseModel
 from openai import OpenAI
-import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
 
@@ -24,8 +26,8 @@ sql_directory = '../data/sqldata'
 database_file = os.path.join(sql_directory, 'water_quality_data.db')
 
 # OpenAI client setup
-client = OpenAI()
-
+client = OpenAI(
+)
 # Pydantic models for request/response validation
 class ChatMessage(BaseModel):
     message: str
