@@ -92,7 +92,7 @@ function displayInfo(item) {
 let currentMeasurementIndex = 0; // To keep track of the current measurement type
 
 function showGraph(location) {
-    const historicalDataPath = `../data/Sensory Measurements/Soc Trang/JSON_proc/compiled_historical_data_st.json`;
+    const historicalDataPath = `./data/Sensory Measurements/Soc Trang/JSON_proc/compiled_historical_data_st.json`;
 
     fetch(historicalDataPath)
         .then(response => response.json())
@@ -178,11 +178,8 @@ function renderChart(locationData, index) {
 
 
 
-markerFromData('../data/Sensory Measurements/Tra Vinh/JSON_proc/travinh-locations.json', 'Tra Vinh');
-
-markerFromData('../data/Sensory Measurements/Soc Trang/JSON_proc/soctrang-locations.json', 'Soc Trang');
-
-
+markerFromData('./data/Sensory Measurements/Tra Vinh/JSON_proc/travinh-locations.json', 'Tra Vinh');
+markerFromData('./data/Sensory Measurements/Soc Trang/JSON_proc/soctrang-locations.json', 'Soc Trang');
 
 
 
