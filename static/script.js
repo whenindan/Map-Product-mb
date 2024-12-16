@@ -177,6 +177,7 @@ function renderChart(locationData, index) {
 
 
 
+
 markerFromData('../data/Sensory Measurements/Tra Vinh/JSON_proc/travinh-locations.json', 'Tra Vinh');
 
 markerFromData('../data/Sensory Measurements/Soc Trang/JSON_proc/soctrang-locations.json', 'Soc Trang');

@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.env
+.venv
+env/
+venv/
+ENV/
+*.egg-info/
+*.egg
+
+# Git
+.git
+.gitignore
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+*.log
+*.sqlite
+*.db
+data/Sensory Measurements/
+data_handling/
+README.md
+tests/

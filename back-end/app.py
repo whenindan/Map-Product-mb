@@ -15,14 +15,14 @@ app = FastAPI()
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with your frontend domain
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # Configuration
-sql_directory = '../data/sqldata'
+sql_directory = './sqldata'
 database_file = os.path.join(sql_directory, 'water_quality_data.db')
 
 # OpenAI client setup
@@ -57,7 +57,7 @@ def execute_sql_query(query: str) -> str:
                 column_names = [description[0] for description in cursor.description]
                 results = [dict(zip(column_names, row)) for row in rows]
                 return json.dumps(results, indent=2) if results else "No data found."
-            else:
+            else:       
                 connection.commit()
                 return f"Query executed successfully: {query.strip().split()[0]}."
     except sqlite3.Error as e:
@@ -179,4 +179,7 @@ async def root():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    import os
+    
+    port = int(os.getenv("PORT", 8080))
+    uvicorn.run(app, host="0.0.0.0", port=port)

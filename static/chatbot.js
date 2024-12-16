@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialize WebSocket connection
     function initializeWebSocket() {
-        ws = new WebSocket('ws://localhost:8000/ws/chat');
+        ws = new WebSocket('wss://nuocgpt-chat-bl9fc.ondigitalocean.app/ws/chat');
         
         ws.onopen = () => {
             appendMessage('system', 'Connected to the chatbot');
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         ws.onclose = () => {
             appendMessage('system', 'Disconnected from the chatbot. Attempting to reconnect...');
-            setTimeout(initializeWebSocket, 3000); // Attempt to reconnect after 3 seconds
+            setTimeout(initializeWebSocket, 3000);
         };
         
         ws.onerror = (error) => {
@@ -75,7 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
             appendMessage('system', 'Error connecting to the chatbot');
         };
     }
-
     // Initialize WebSocket when the page loads
     initializeWebSocket();
 
